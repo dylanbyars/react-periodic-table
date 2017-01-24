@@ -1,0 +1,249 @@
+:root {
+  --element-height: 5vw;
+  --element-width: 5vw;
+  --color-border: #50514F;
+  --color-background: #F2EFE9;
+  --color-text: #071108;
+  --color-nonmetal: #1AFF00;
+  --color-alkali-metal: #FF0C00;
+  --color-alkaline-earth-metal: #FF6700;
+  --color-transition-metal: #FF54A4;
+  --color-metalloid: #FFB800;
+  --color-metal: #FF762E;
+  --color-halogen: #00EEFF;
+  --color-noble-gas: #0E94FF;
+  --color-lanthanoid: #FF006A;
+  --color-actinoid: #FF00C6;
+  --color-group-unconfirmed: #BADA55;
+  --color-my-site: #507DBC;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Muli', sans-serif;
+  backgroun-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Styles for the modal */
+
+.backdrop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 10px;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal__header--close-btn {
+  
+}
+
+.modal__content {
+  
+}
+
+.modal__content--summary {
+  
+}
+
+.modal__content--image {
+  max-width: 15vw;
+}
+
+/* figure out a way to fade the table in when it loads */
+
+.periodic-table {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2vw;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  jutify-content: center;
+  align-items: center;
+  margin-bottom: 8vh;
+}
+
+.title {
+  font-size: 6vw;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 4vw;
+  margin-top: 1vh;
+}
+
+.main-block {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.f-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.f-block > div {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.element {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: var(--element-width);
+  height: var(--element-height);
+  margin: 1px;
+  border-radius: 2px;
+  border: 0.5px solid var(--color-border);
+  transition: all 0.4s ease-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+
+/* can't decide if there should be a hover effect... */
+
+/* .element:hover {
+  transform: scale(1.9);
+  -webkit-transform: scale(1.9);
+  z-index: 1000;
+} */
+
+.nonmetal {
+  background-color: var(--color-nonmetal);
+}
+
+.alkali-metal {
+  background-color: var(--color-alkali-metal);
+}
+
+.alkaline-earth-metal {
+  background-color: var(--color-alkaline-earth-metal);
+}
+
+.transition-metal {
+  background-color: var(--color-transition-metal);
+}
+
+.metalloid {
+  background-color: var(--color-metalloid);
+}
+
+.metal {
+  background-color: var(--color-metal);
+}
+
+.halogen {
+  background-color: var(--color-halogen);
+}
+
+.noble-gas {
+  background-color: var(--color-noble-gas);
+}
+
+.lanthanoid {
+  background-color: var(--color-lanthanoid);
+}
+
+.actinoid {
+  background-color: var(--color-actinoid);
+}
+
+.probably-metal,
+.probably-noble-gas {
+  background-color: var(--color-group-unconfirmed);
+}
+
+.gas {
+  
+}
+
+.solid {
+  
+}
+
+.liquid {
+  
+}
+
+.state-unknown {
+  
+}
+
+.active {
+  
+}
+
+.number {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  font-size: 1.2vw;
+  transition: inherit;
+}
+
+.symbol {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  font-size: 2.1vw;
+  transition: inherit;
+}
+
+.by-dylan {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+.my-site {
+  text-decoration: none;
+  transition: 200ms;
+  color: var(--color-text)
+}
+
+.my-site:hover {
+  color: var(--color-my-site);
+}
