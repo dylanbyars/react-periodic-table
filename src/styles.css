@@ -31,8 +31,17 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Muli', sans-serif;
-  backgroun-color: var(--color-background);
+  background-color: var(--color-background);
   color: var(--color-text);
+}
+
+
+/* styling for the wandering cubes spinner element */
+
+.wandering-cubes {
+  width: 27px;
+  height: 27px;
+  position: relative;
 }
 
 /* Styles for the modal */
@@ -60,26 +69,54 @@ body {
   padding: 15px 10px;
 }
 
+.modal__close-btn {
+  border: none;
+  background-color: var(--color-alkali-metal);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 19px;
+  width: 19px;
+}
+
+.modal__close-btn:hover {
+  cursor: pointer;
+}
+
 .modal__header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 10px 0 15px;
 }
 
-.modal__header--close-btn {
-  
+.modal__header--title {
+  font-size: 21px;
+}
+
+.modal__header--image {
+  max-width: 25vw;
 }
 
 .modal__content {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .modal__content--summary {
   
 }
 
-.modal__content--image {
-  max-width: 15vw;
+.modal__content--wiki-link {
+  padding: 10px 0 5px;
+  text-decoration: none;
+  transition: 100ms ease-out;
+}
+
+.modal__content--wiki-link:hover {
+  color: var(--color-halogen);
 }
 
 /* figure out a way to fade the table in when it loads */
@@ -139,17 +176,11 @@ body {
   margin: 1px;
   border-radius: 2px;
   border: 0.5px solid var(--color-border);
-  transition: all 0.4s ease-out;
-  -webkit-transition: all 0.4s ease-in-out;
 }
 
-/* can't decide if there should be a hover effect... */
-
-/* .element:hover {
-  transform: scale(1.9);
-  -webkit-transform: scale(1.9);
-  z-index: 1000;
-} */
+.element:hover {
+  cursor: pointer;
+}
 
 .nonmetal {
   background-color: var(--color-nonmetal);
