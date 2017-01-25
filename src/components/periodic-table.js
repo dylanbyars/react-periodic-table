@@ -176,7 +176,9 @@ class PeriodicTable extends Component {
     } else {
       return (
         <div className="periodic-table">
-          <Modal isOpen={this.state.modalOpen} onClose={this.closeModal} element={this.state.activeElement} wiki={this.state.activeElementWiki} />
+
+          {this.state.modalOpen && <Modal onClose={this.closeModal} element={this.state.activeElement} wiki={this.state.activeElementWiki} />}
+          
           <Header />
           <div className="main-block">
             <Group elements={this.state.group1} setModalElement={this.setModalElement} />
@@ -206,7 +208,6 @@ class PeriodicTable extends Component {
         </div>
       )
     }
-
   }
 }
 
