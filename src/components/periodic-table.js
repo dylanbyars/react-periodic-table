@@ -39,6 +39,11 @@ class PeriodicTable extends Component {
       // the active element, if one's selected by the user. Null to start.
       activeElement: null,
       activeElementWiki: null,
+      activeElementSymbol: null,
+      activeElementMass: null,
+      activeElementNumber: null,
+      activeElementState: null,
+      activeElementGroup: null,
       // boolean to determine if the modal is/should be open or not. False to start
       modalOpen: false
     }
@@ -151,10 +156,15 @@ class PeriodicTable extends Component {
     })
   }
 
-  setModalElement(element, wiki) {
+  setModalElement(element, wiki, symbol, mass, number, state, group) {
     this.setState({
       activeElement: element,
       activeElementWiki: wiki,
+      activeElementSymbol: symbol,
+      activeElementMass: mass,
+      activeElementNumber: number,
+      activeElementState: state,
+      activeElementGroup: group,
       modalOpen: true
     })
   }
@@ -177,7 +187,7 @@ class PeriodicTable extends Component {
       return (
         <div className="periodic-table">
 
-          {this.state.modalOpen && <Modal onClose={this.closeModal} element={this.state.activeElement} wiki={this.state.activeElementWiki} />}
+          {this.state.modalOpen && <Modal onClose={this.closeModal} element={this.state.activeElement} wiki={this.state.activeElementWiki} symbol={this.state.activeElementSymbol} mass={this.state.activeElementMass} number={this.state.activeElementNumber} state={this.state.activeElementState} group={this.state.activeElementGroup} />}
           
           <Header />
           <div className="main-block">
