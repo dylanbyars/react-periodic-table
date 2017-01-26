@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import jsonp from 'b-jsonp';
 
-import Spinner from 'react-spinkit';
+import { ModalHeader } from './modal-header';
+import { ModalDetail } from './modal-detail';
+import { ModalContent } from './modal-content';
 
-class Modal extends React.Component {
+class Modal extends Component {
   constructor(props) {
     super(props)
 
@@ -17,6 +19,7 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
+
     // listen for the escape key and close modal if it's heard
     window.addEventListener('keydown', this.checkKeycode)
 
@@ -45,11 +48,11 @@ class Modal extends React.Component {
         console.log(response)
       }
     })
-    
+
     // get an image from the wiki page
-    
+
     const wikiImageUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=${wikiTitle}&prop=pageimages&format=json&pithumbsize=100`
-    
+
     // a function to update the modal's state
     const updateWikiImage = (data) => {
       this.setState({
@@ -62,7 +65,7 @@ class Modal extends React.Component {
       let pageId = Object.keys(response.query.pages)
       updateWikiImage(response.query.pages[pageId].thumbnail.source)
     })
-    
+
   }
 
   componentWillUnmount() {
@@ -70,7 +73,7 @@ class Modal extends React.Component {
     window.removeEventListener('keydown', this.checkKeycode)
   }
 
-  // Closes the modal if user hits the escape key when modal is open
+  // Closes the modal if user hits the escape key when the modal is open
   checkKeycode(e) {
     if (e.code === 'Escape') {
       this.props.onClose()
@@ -85,31 +88,18 @@ class Modal extends React.Component {
   }
 
   render() {
-
-    if (!this.state.wikiSummary || !this.state.wikiImage) {
-      return (
-        <div>
-          <div className="modal">
-            <Spinner spinnerName="cube-grid" />
-          </div>
-          <div className="backdrop" onClick={e => this.close(e)}></div>
-        </div>
-      )
+    if (this.props.element === "fillerElement") {
+      return null
     } else {
       return (
         <div>
           <div className="modal">
-            <button className="modal__close-btn" onClick={e => this.close(e)}>&#10006;</button>
-            <div className="modal__header">
-              <div className="modal__header--title">{this.props.element}</div>
-              <img className="modal__header--image" src={this.state.wikiImage}/>
+            <div className="modal__close-btn" onClick={e => this.close(e)}>
+              <img src="https://image.flaticon.com/icons/svg/148/148766.svg" />
             </div>
-            <div className="modal__content">
-              <div className="modal__content--summary">
-                <p>{this.state.wikiSummary}</p>
-              </div>
-              <a className="modal__content--wiki-link" href={this.props.wiki}>wikipedia</a>
-            </div>
+            <ModalHeader title={this.props.element} image={this.state.wikiImage} />
+            <ModalDetail symbol={this.props.symbol} mass={this.props.mass} number={this.props.number} state={this.props.state} group={this.props.group} />
+            <ModalContent summary={this.state.wikiSummary} link={this.props.wiki} /> 
           </div>
           <div className="backdrop" onClick={e => this.close(e)}></div>
         </div>
