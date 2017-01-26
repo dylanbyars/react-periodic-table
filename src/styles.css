@@ -16,6 +16,8 @@
   --color-actinoid: #FF00C6;
   --color-group-unconfirmed: #BADA55;
   --color-my-site: #507DBC;
+  --color-modal-background: #FEFCFD;
+  --color-modal-close-btn: #ED474A;
 }
 
 *,
@@ -34,7 +36,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
 }
-
 
 /* styling for the wandering cubes spinner element */
 
@@ -62,61 +63,90 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  background: yellow;
+  background: var(--color-modal-background);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px 10px;
+  border-radius: 4px;
 }
 
 .modal__close-btn {
-  border: none;
-  background-color: var(--color-alkali-metal);
   position: absolute;
   top: 5px;
   right: 5px;
-  height: 19px;
-  width: 19px;
+  height: 21px;
+  width: 21px;
 }
 
 .modal__close-btn:hover {
   cursor: pointer;
 }
 
-.modal__header {
+.modal-header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0 15px;
+  padding: 15px 0 15px;
 }
 
-.modal__header--title {
-  font-size: 21px;
+.modal-header__title {
+  font-size: 26px;
 }
 
-.modal__header--image {
-  max-width: 25vw;
+.modal-header__image {
+  max-width: 20vw;
 }
 
-.modal__content {
+.modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding: 0 20px;
 }
 
-.modal__content--summary {
-  
+.modal-content__summary {
+  font-size: 15px;
 }
 
-.modal__content--wiki-link {
+.modal-content__wiki-link {
   padding: 10px 0 5px;
   text-decoration: none;
   transition: 100ms ease-out;
 }
 
-.modal__content--wiki-link:hover {
+.modal-content__wiki-link:hover,
+.detail-link:hover {
   color: var(--color-halogen);
+}
+
+.modal-details {
+  margin: 10px 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-detail {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.modal-detail__label,
+.modal-detail__value {
+  margin: 0 3px;
+}
+
+.modal-details__group > .modal-detail__value,
+.modal-details__state > .modal-detail__value {
+  text-transform: capitalize;
+}
+
+.detail-link {
+  text-decoration: none;
+  transition: 100ms ease-out;
 }
 
 /* figure out a way to fade the table in when it loads */
