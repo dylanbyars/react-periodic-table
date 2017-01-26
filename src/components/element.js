@@ -33,7 +33,7 @@ export const Element = ({
   let styles = classNames('element', groupStyle(group), stateStyle(state))
 
   return (
-    <div className={styles} onClick={() => setModalElement(name, wiki)}>
+    <div className={styles} onClick={() => setModalElement(name, wiki, symbol, mass, number, state, group)}>
       <div className="symbol">{symbol}</div>
       <div className="number">{number}</div>
     </div>
