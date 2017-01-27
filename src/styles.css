@@ -1,6 +1,4 @@
 :root {
-  --element-height: 5vw;
-  --element-width: 5vw;
   --color-border: #50514F;
   --color-background: #F2EFE9;
   --color-text: #071108;
@@ -201,8 +199,8 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
-  width: var(--element-width);
-  height: var(--element-height);
+  width: 5vw;
+  height: 5vw;
   margin: 1px;
   border-radius: 2px;
   border: 0.5px solid var(--color-border);
@@ -273,10 +271,6 @@ body {
   
 }
 
-.active {
-  
-}
-
 .number {
   position: absolute;
   top: 8%;
@@ -307,4 +301,23 @@ body {
 
 .my-site:hover {
   color: var(--color-my-site);
+}
+
+@media (min-width: 900px) {
+  .element {
+    height: 45px;
+    width: 45px;
+  }
+
+  .number {
+    font-size: 13px;
+  }
+
+  .symbol {
+    font-size: 16px;
+  }
+
+  .modal {
+    max-width: 450px;
+  }
 }
